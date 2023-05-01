@@ -8,21 +8,35 @@ end)
 getgenv().AutoQuest = false;
 getgenv().autoplatform = false;
 
+local ts = game:GetService("TweenService")
+
+local function Tween(part, endpos, speed)
+    if part and endpos then
+        local Time = 0.35
+        local Info = TweenInfo.new(Time, Enum.EasingStyle.Linear)
+        local Tween = ts:Create(part,Info,{CFrame = CFrame.new(endpos.X,endpos.Y,endpos.Z)})
+        Tween:Play()
+        wait(Time)
+    end
+end
+
+
+
 function Quest()
     spawn(function()
         while AutoQuest do
             local args = {[1] = workspace["Quest NPCS"]["Elder - Quest"].HumanoidRootPart.QuestActivator.Quest}
             game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1455.76, 75.8209, 4358.44)
-            wait(1.65)
+            Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, Vector3.new(-1455.76, 75.8209, 4358.44), 5)
+            wait(1.47)
             local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (2)"].HumanoidRootPart.QuestActivator.Quest}
             game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2257.34, 83.5238, 3920.62)
-            wait(1.65)
+            Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, Vector3.new(-2257.34, 83.5238, 3920.62), 5)
+            wait(1.47)
             local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (LAST)"].HumanoidRootPart.QuestActivator.Quest}
             game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2259.47, 168.319, 4044.05)
-            wait(1.65)
+            Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, Vector3.new(-2259.47, 168.319, 4044.05), 5)
+            wait(1.47)
         end
     end)
 end
