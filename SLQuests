@@ -1,0 +1,60 @@
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+getgenv().AutoQuest = false;
+getgenv().autoplatform = false;
+
+function Quest()
+    spawn(function()
+        while AutoQuest do
+            local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (2)"].HumanoidRootPart.QuestActivator.Quest}
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2257.34, 83.5238, 3920.62)
+            wait(2.5)
+            local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (LAST)"].HumanoidRootPart.QuestActivator.Quest}
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2259.47, 168.319, 4044.05)
+            wait(2.5)
+        end
+    end)
+end
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+
+local w = library:CreateWindow("Soul Cultivation")
+
+local b = w:CreateFolder("Quest")
+
+local d = w:CreateFolder("create platform")
+
+local e = w:CreateFolder("Credit")
+
+
+b:Toggle("Auto Quest",function(bool)
+    getgenv().AutoQuest = bool
+    print(': ', bool)
+    if bool then
+        Quest();
+    end
+end)
+
+d:Toggle("Auto Platform",function(bool)
+    getgenv().autoplatform = bool
+    print(': ', bool)
+    if bool then
+        Platform()
+    end
+end)
+
+e:Label("Demon Immortel",{
+    TextSize = 25;
+    TextColor = Color3.fromRGB(255,255,255);
+    BgColor = Color3.fromRGB(69,69,69);
+    
+}) 
+
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/DragonLords03/Soul-Cultivation/main/Soul%20Cultivation%20v1"))()
