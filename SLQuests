@@ -11,17 +11,22 @@ getgenv().autoplatform = false;
 function Quest()
     spawn(function()
         while AutoQuest do
+            local args = {[1] = workspace["Quest NPCS"]["Elder - Quest"].HumanoidRootPart.QuestActivator.Quest}
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1455.76, 75.8209, 4358.44)
+            wait(1.65)
             local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (2)"].HumanoidRootPart.QuestActivator.Quest}
             game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2257.34, 83.5238, 3920.62)
-            wait(2.5)
+            wait(1.65)
             local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (LAST)"].HumanoidRootPart.QuestActivator.Quest}
             game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2259.47, 168.319, 4044.05)
-            wait(2.5)
+            wait(1.65)
         end
     end)
 end
+
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
