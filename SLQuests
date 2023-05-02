@@ -20,21 +20,73 @@ local function Tween(part, endpos, speed)
     end
 end
 
+repeat
+    game.Players.LocalPlayer:RequestStreamAroundAsync(Vector3.new(5736.7998, 812.604126, -1497.50659))
+    wait()
+until workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+
 function Quest()
     spawn(function()
         while AutoQuest do
-            local args = {[1] = workspace["Quest NPCS"]["Elder - Quest"].HumanoidRootPart.QuestActivator.Quest}
-            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
+            repeat
+                game.Players.LocalPlayer:RequestStreamAroundAsync(Vector3.new(5736.7998, 812.604126, -1497.50659))
+                wait()
+            until workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local quest1 = workspace["Quest NPCS"]["Elder - Quest"]:FindFirstChild("Quest", 1)
+            local quest2 = workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local lol = {
+                EnemyName = quest1.EnemyName;
+                EnemyAmount = quest2.EnemyAmount;
+                Reward = quest2.Reward;
+                RankRequirement = quest1.RankRequirement;
+            }
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(lol)
             Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, Vector3.new(-1455.76, 75.8209, 4358.44), 5)
             wait(1.47)
-            local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (2)"].HumanoidRootPart.QuestActivator.Quest}
-            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
+            repeat
+                game.Players.LocalPlayer:RequestStreamAroundAsync(Vector3.new(5736.7998, 812.604126, -1497.50659))
+                wait()
+            until workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local quest1 = workspace["Quest NPCS"]["Elder - Quest (2)"]:FindFirstChild("Quest", 1)
+            local quest2 = workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local lol = {
+                EnemyName = quest1.EnemyName;
+                EnemyAmount = quest2.EnemyAmount;
+                Reward = quest2.Reward;
+                RankRequirement = quest1.RankRequirement;
+            }
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(lol)
             Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, Vector3.new(-2257.34, 83.5238, 3920.62), 5)
             wait(1.47)
-            local args = {[1] = workspace["Quest NPCS"]["Elder - Quest (LAST)"].HumanoidRootPart.QuestActivator.Quest}
-            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(unpack(args))
+            repeat
+                game.Players.LocalPlayer:RequestStreamAroundAsync(Vector3.new(5736.7998, 812.604126, -1497.50659))
+                wait()
+            until workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local quest1 = workspace["Quest NPCS"]["Elder - Quest (LAST)"]:FindFirstChild("Quest", 1)
+            local quest2 = workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local lol = {
+                EnemyName = quest1.EnemyName;
+                EnemyAmount = quest2.EnemyAmount;
+                Reward = quest2.Reward;
+                RankRequirement = quest1.RankRequirement;
+            }
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(lol)
             Tween(game.Players.LocalPlayer.Character.HumanoidRootPart, Vector3.new(-2259.47, 168.319, 4044.05), 5)
             wait(1.47)
+            repeat
+                game.Players.LocalPlayer:RequestStreamAroundAsync(Vector3.new(5736.7998, 812.604126, -1497.50659))
+                wait()
+            until workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local quest1 = workspace["Quest NPCS"]["Damon - Quest"]:FindFirstChild("Quest", 1)
+            local quest2 = workspace["Quest NPCS"].Angel:FindFirstChild("Quest", 1)
+            local lol = {
+                EnemyName = quest1.EnemyName;
+                EnemyAmount = quest2.EnemyAmount;
+                Reward = quest2.Reward;
+                RankRequirement = quest1.RankRequirement;
+            }
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].EnableQuest:FireServer(lol)
+            game:GetService("ReplicatedStorage")["Quest Remote Events"].LeaveQuest:FireServer()
         end
     end)
 end
